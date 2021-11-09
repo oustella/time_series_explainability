@@ -800,7 +800,7 @@ def load_simulated_data(batch_size=100, datapath='./data/simulated_data', data_t
     n_train = int(0.8 * len(x_train))
     if 'cv' in kwargs.keys():
         print('cv : ', kwargs['cv'])
-        kf = KFold(n_splits=5, random_state=88)
+        kf = KFold(n_splits=5, random_state=88, shuffle=True)
         train_idx, valid_idx = list(kf.split(x_train))[kwargs['cv']]
     else:
         train_idx = range(n_train)
